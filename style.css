@@ -24,6 +24,22 @@
     --border-color:    rgba(69, 80, 76, 0.15);
 }
 
+.iphone-header {
+    width: 100%;             /* S'adapte à la largeur de l'écran */
+    max-width: 375px;        /* Taille d'un iPhone standard (375px) */
+    height: 250px;        /* Hauteur fixe ou souhaitée */
+    margin: 0 auto;          /* Centre le header sur grand écran */
+    overflow: hidden;        /* Empêche les débordements d'image */
+}
+
+.header-img {
+    width: 100%;             /* Remplit toute la largeur */
+    height: 100%;            /* Remplit toute la hauteur du header */
+    object-fit: cover;      /* Ajuste sans déformer l'image */
+    object-position: center; /* Centre le sujet de l'image */
+    display: block;          /* Supprime les espaces blancs indésirables */
+}
+
 body {
     background-color:#fbf3da;
 }

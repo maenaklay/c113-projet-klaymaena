@@ -4,7 +4,7 @@
 ## 1. 🎨 Présentation du projet
 
 ### Concept
-- Thème choisi : Page d'acceuil restauration inovateur, New York, Soho
+- Thème choisi : Page d'acceuil restauration inovateur, Toronto, Canada.
 - Public cible : Clients 
 - Objectifs du site : Appercu visuel du restaurant et apperçu du menus
 

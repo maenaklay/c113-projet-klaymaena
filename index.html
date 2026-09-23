@@ -2,40 +2,54 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SŌMA Restaurant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="iphone-header">
+<header class="top-bar">
+    <div>
+        <span class="burger-menu">☰</span>
+        <h1>SŌMA</h1>
+    </div>
         <img
                 src="img/front.jpg"
                 alt="Bannière d'en-tête mobile"
-                class="header-img"
+                class="banner-img"
         />
 </header>
 <main>
-    <h1>SŌMA</h1>
-    <p>Cuisine Gastronomique Italienne</p>
-    <section>
-        <table>
-            <thead>
-            <tr>
-                <th>LOCATION</th>
-                <th>HOURS</th>
-                <th>CONTACT</th>
-            </tr>
-            </thead>
+    <section class="infos-section">
+        <div class="infos-columns">
+            <h2>LOCATION</h2>
+            <p>61 KING ST W, TORONTO,<br> ON M5V 2J4, CANADA</p>
+        </div>
+        <div class="infos-columns">
+            <h2>RESERVATIONS</h2>
+            <p><a href="#">BOOK THE INN</a>UP TO THREE<br>MONTHS IN ADVANCE</p>
+        </div>
+        <div class="infos-columns">
+            <h2>CONTACT</h2>
+            <p><a href="mailto.INFO@SOMA.COM">INFO@SOMA.COM</a><br>514-55-0199</p>
+        </div>
+        </section>
 
-            <thbody>
-                <tr>
-                    <td> 461 King St W, Toronto, ON M5V 2J4, Canada</td>
-                    <td>BOOK THE INN Up to three months in advance</td>
-                    <td><a href="info.@SOMA.com"></a>514-555-0199</td>
-                </tr>
-            </thbody>
-        </table>
-
-    </section>
+        <section class="features-section">
+            <div class="feature-text">
+                <h2>RESTAURANT</h2>
+            </div>
+            <div class="feature-image">
+                <img src="img/spaghettis.jpg" alt ="Spaghettis"/>
+            </div>
+        </section>
+        <section class="features-section-revers-mobile">
+            <div class="feature-image2">
+                <img src="img/cocktails.jpg" alt="Cocktails"/>
+            </div>
+            <div class="feature-text">
+                <h2>THE EXPERIENCE</h2>
+            </div>
+        </section>
 </main>
 </body>
 </html>

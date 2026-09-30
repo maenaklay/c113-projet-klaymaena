@@ -1,83 +1,72 @@
 :root {
-    --color-cream:     #fbf3da; /* Fond clair chaleureux */
-    --color-charcoal:  #45504c; /* Gris/Vert foncé neutre */
-    --color-forest:    #365946; /* Vert forêt élégant */
-    --color-burgundy:  #720e07; /* Rouge/Bordeaux d'accentuation */
-    --color-bronze:    #8b6220; /* Bronze/Or chaud pour détails */
-
-    --bg-main:         var(--color-cream);
-    --bg-surface:      #ffffff;
-    --bg-dark:         var(--color-charcoal);
-
-    /* Textes */
-    --text-primary:    var(--color-charcoal);
-    --text-secondary:  var(--color-forest);
-    --text-light:      var(--color-cream);
-
-    /* Éléments interactifs & Boutons */
-    --btn-primary-bg:  var(--color-burgundy);
-    --btn-primary-text:#ffffff;
-    --btn-secondary-bg:var(--color-forest);
-
-    /* Accents & Bords */
-    --accent-gold:     var(--color-bronze);
-    --border-color:    rgba(69, 80, 76, 0.15);
+    --primary-color: #720e07;
+    --secondary-color:#365946;
+    --text-color:#45050c;
+    --background-color: #fbf3da;
 }
 
 body {
+    background: #fbf3da;
+}
+
+h1 {
+    text-align: center;
+    color: var(--background-color);
+}
+
+.feature-text {
+    color : var(--text-color);
+}
+
+.top-bar {
+    color : var(--background-color);
+    cursor : pointer;
+    font-size :24px;
+}
+
+
+.top-bar {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 15px;
+}
+
+.banner-container {
+    width: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    display:block;
+}
+
+.infos-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
     background-color: #fbf3da;
 }
 
-.feature-image {
-    display: flex;
-    justify-content: flex-end; /* Aligne tout le contenu à droite */
-    width: 100%;
-}
-
-.feature-image2 {
-    display: flex;
-    justify-content: flex-start; /* Aligne le contenu tout à gauche */
-    width: 100%;
-}
-
-/* 1. Aligner les 3 blocs côte à côte sur une ligne */
-.infos-section {
-    display: flex;
-    justify-content: space-between; /* Espace équitablement les colonnes */
-    align-items: flex-start;       /* Aligne les blocs par le haut */
-    width: 100%;
-    padding: 40px 20px;            /* Marge interne */
-    text-align: center;            /* Centre le texte dans chaque colonne */
-    background-color: #fbf3da;    /* Couleur du fond crème */
-}
-
-/* 2. Gérer la largeur de chaque colonne */
 .infos-columns {
-    flex: 1;                      /* Chaque colonne prend exactement le même espace */
-    padding: 0 15px;              /* Espace entre les colonnes */
+    flex: 1;
+    padding: 0 15px;
 }
 
-/* 3. Style des titres (LOCATION, RESERVATIONS, CONTACT) */
 .infos-columns h2 {
     font-family: sans-serif;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 1.5px;
-    margin-bottom: 12px;          /* Espace sous le titre */
+    margin-bottom: 12px;
     color: #720e07;
 }
 
-/* 4. Style du texte sous les titres */
-.infos-columns p {
-    font-family: sans-serif;
-    font-size: 11px;
-    line-height: 1.6;             /* Espacement entre les lignes */
-    color: #2b1100;
-    letter-spacing: 0.5px;
-}
-
-/* 5. Style des liens (BOOK THE INN et l'adresse email) */
-.infos-columns a {
-    color: #2b1100 ;
-    text-decoration: underline;    /* Souligne le texte des liens */
-}

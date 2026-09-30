@@ -3,6 +3,16 @@
     --secondary-color:#365946;
     --text-color:#45050c;
     --background-color: #fbf3da;
+    --police-titre : Cinzel;
+    --police-text : Cinzelregular;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src : url('font/cinzel-v26-latin-700.woff2') format('woff2');
+    font-size: auto;
+    padding:1.5em;
+    line-height: 1.6;
 }
 
 body {
@@ -16,6 +26,7 @@ h1 {
 
 .feature-text {
     color : var(--text-color);
+    font-family: 'Cinzel';
 }
 
 .top-bar {
@@ -68,5 +79,6 @@ h1 {
     letter-spacing: 1.5px;
     margin-bottom: 12px;
     color: #720e07;
+    font-family: 'Cinzel';
 }
 

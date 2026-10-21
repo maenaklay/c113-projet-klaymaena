@@ -55,12 +55,16 @@ h1 {
     color : var(--background-color);
 }
 
-.top-bar {
+.top-bar { /* Image d'entête */
     color : var(--background-color);
+    background-image: url("img/front.jpg");
+    min-height: 200px;
+    background-position: center;
+    background-size : cover;
+    background-repeat: no-repeat;
     cursor : pointer;
     font-size :24px;
 }
-
 
 .top-bar {
     background-color: #000000;

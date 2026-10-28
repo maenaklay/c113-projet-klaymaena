@@ -35,27 +35,61 @@ body {
     background: #fbf3da;
 }
 
-h1 {
-    text-align: center;
-    color: var(--background-color);
+
+
+header {
+    background-color: var(--background-color);
+    padding: 1rem 1.5rem;
+    display: flex; /*Pour le mettre sur la meme ligne que les autre le (Mon Portfolio)*/
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem;
+    font-size: 4rem;
 }
+
+.logo {
+    font-weight: bold;
+    font-size: 4rem; /*rend le logo plus visible*/
+}
+
+header a {
+    color: var(--background-color);
+    text-decoration: none;
+}
+
+.menu {
+    list-style-type: none; /*supprime les puce*/
+    padding: 0; /*Supprime lespace contre le bord*/
+    margin: 0; /*Supprime les marges*/
+    display: flex; /*Affiche le menu de manière côte a côte*/
+    flex-wrap: wrap;/*Fais que si l'écran devient petit il passe sur la deuxième, troisième lignes*/
+    gap: .5rem;/* 1rem = 16px donc .5 = 8px si on met em=taille du menu
+     ici tandis que rem taille relatif a la taille de base du site*/
+    flex-direction: column;
+
+}
+
+.menu a { /* a = lien mais ici menu a = les liens du menu*/
+    color: var(--background-color);
+    padding: .6rem 1rem; /*grossis la zone cliquable environ 30px*/
+    border-radius: 0.25rem;
+}
+
+
+.menu a:hover,         /*hover=passe en dessus et focus c'est le clic, ici c'est pour que sa soit visuel quand on passe dessus*/
+.menu a:focus,
+.menu a.actif {  /*ici fait que lorsque on clique sur un choix du menu il rest en vert lorsque la pasge s'ouvre*/
+    background-color: var(--primary-color);
+
+}
+
 
 .feature-text {
     color : var(--text-color);
     font-family: Cinzelregular, sans-serif;
 }
 
-.burger-menu {
-    color: #ffffff;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 28px;
-}
-.burger-menu:hover {
-    color : var(--background-color);
-}
-
-.top-bar { /* Image d'entête */
+.header1 { /* Image d'entête */
     color : var(--background-color);
     background-image: url("img/front.jpg");
     min-height: 200px;
@@ -63,16 +97,16 @@ h1 {
     background-size : cover;
     background-repeat: no-repeat;
     cursor : pointer;
-    font-size :24px;
+    font-size :1.5rem;
 }
 
-.top-bar {
+.header1 {
     background-color: #000000;
     color: #ffffff;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    gap: 15px;
+    padding: .75rem 1rem;
+    gap: 1rem;
 }
 
 .banner-container {
@@ -97,14 +131,14 @@ h1 {
     background-color: #fbf3da;
 }
 
-.infos-columns {
+.infos-colonnes {
     flex: 1;
-    padding: 0 15px;
+    padding: 0 1rem;
 }
 
-.infos-columns h2 {
+.infos-colonnes h2 {
     font-family: Cinzel;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     letter-spacing: 1.5px;
     margin-bottom: 12px;
@@ -115,7 +149,7 @@ h1 {
 .features-section {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 2.5rem;
     padding: 50px 8%;
 }
 
@@ -123,8 +157,8 @@ h1 {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: 40px;
-    padding: 50px 8%;
+    gap: 2.5rem;
+    padding: 3rem 8%;
 }
 
 .feature-text {
@@ -151,8 +185,8 @@ h1 {
     .features-section,
     .feature-row {
         flex-direction: column;
-        padding: 30px 20px;
-        gap: 20px;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
     }
 
     .feature-image,

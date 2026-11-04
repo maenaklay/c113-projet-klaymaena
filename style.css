@@ -63,7 +63,7 @@ header a {
     margin: 0; /*Supprime les marges*/
     display: flex; /*Affiche le menu de manière côte a côte*/
     flex-wrap: wrap;/*Fais que si l'écran devient petit il passe sur la deuxième, troisième lignes*/
-    gap: .5rem;/* 1rem = 16px donc .5 = 8px si on met em=taille du menu
+    gap: 1rem;/* 1rem = 16px donc .5 = 8px si on met em=taille du menu
      ici tandis que rem taille relatif a la taille de base du site*/
     flex-direction: column;
 
@@ -84,7 +84,7 @@ header a {
 }
 
 
-.feature-text {
+.presentation {
     color : var(--text-color);
     font-family: Cinzelregular, sans-serif;
 }
@@ -125,7 +125,7 @@ header a {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
+    max-width: 100%;
     padding: 40px 20px;
     text-align: center;
     background-color: #fbf3da;
@@ -161,7 +161,7 @@ header a {
     padding: 3rem 8%;
 }
 
-.feature-text {
+.presentation {
     flex: 1;
     color: var(--text-color);
     font-family: Cinzelregular, sans-serif;
@@ -191,7 +191,7 @@ header a {
 
     .feature-image,
     .feature-image2,
-    .feature-text {
+    .presentation {
         width: 100%;
     }
 

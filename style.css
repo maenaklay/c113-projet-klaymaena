@@ -1,23 +1,40 @@
 /* ==========================================================================
-   1. REGLES GENERALES & VARIABLES
+   1. RÈGLES GÉNÉRALES ET VARIABLES (Le socle du site)
    ========================================================================== */
 
+/*
+  Le sélecteur universel (*) cible TOUS les éléments de la page.
+  - box-sizing: border-box; est indispensable : il permet d'inclure les bordures
+    et les marges intérieures (padding) dans la largeur totale d'un élément,
+    évitant ainsi qu'il ne "déborde" de l'écran.
+  - margin et padding à 0 remettent à zéro les marges par défaut des navigateurs.
+*/
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/*
+  La pseudo-classe :root correspond à la racine du document HTML (<html>).
+  On y définit des "variables CSS" (ou custom properties) personnalisées.
+  Avantage : si tu veux changer la couleur principale du site plus tard,
+  tu n'as qu'à la modifier ici une seule fois !
+*/
 :root {
-    --primary-color: #720e07;
-    --secondary-color: #365946;
-    --text-color: #45050c;
-    --background-color: #fbf3da;
-    --white: #ffffff;
-    --font-heading: 'Cinzel', serif, sans-serif;
-    --font-body: 'Cinzelregular', serif, sans-serif;
+    --primary-color: #720e07;     /* Couleur bordeaux/rouge principal */
+    --secondary-color: #365946;   /* Vert secondaire (si besoin) */
+    --text-color: #45050c;        /* Couleur sombre pour les textes */
+    --background-color: #fbf3da;  /* Couleur de fond beige sable/crème */
+    --white: #ffffff;             /* Blanc pur */
+    --font-heading: 'Cinzel', serif, sans-serif;          /* Police pour les titres */
+    --font-body: 'Cinzelregular', serif, sans-serif;      /* Police pour le texte normal */
 }
 
+/*
+  @font-face permet d'importer et d'utiliser des polices de caractères locales
+  qui sont stockées dans ton dossier (ici dans le dossier 'font').
+*/
 @font-face {
     font-family: 'Cinzel';
     src: url('font/cinzel-v26-latin-700.woff2') format('woff2');
@@ -32,106 +49,131 @@
     font-style: normal;
 }
 
+/*
+  Mise en page globale de la balise <body> :
+  - display: flex et flex-direction: column combinés avec 'margin-top: auto' sur le footer
+    permettent de "pousser" automatiquement le pied de page tout en bas,
+    même s'il n'y a pas assez de contenu sur la page.
+*/
 body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.6; /* Espace vertical entre les lignes pour le confort de lecture */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; /*min-height: 100vh; force le corps de la page à prendre au moins 100% de la hauteur de l'écran.*/
 }
 
+/* La balise <main> prend tout l'espace disponible entre le header et le footer */
 main {
     flex: 1;
 }
 
+/* Rend toutes les images adaptatives : elles ne dépassent jamais la largeur de leur conteneur */
 img {
     max-width: 100%;
     height: auto;
-    display: block;
+    display: block; /* Supprime l'espace blanc parasite sous les images */
 }
 
+/* Style global des liens hypertexte <a> */
 a {
-    color: inherit;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
+    color: inherit;         /* Hérite de la couleur du texte parent par défaut */
+    text-decoration: none;  /* Supprime le soulignement moche des liens */
+    transition: opacity 0.3s ease; /* Effet de fondu doux au survol */
 }
 
+/* Au survol d'un lien, on réduit légèrement son opacité */
 a:hover {
     opacity: 0.8;
 }
 
+
 /* ==========================================================================
-   2. EN-TÊTE (HEADER) & NAVIGATION
+   2. EN-TÊTE (HEADER) ET BARRE DE NAVIGATION
    ========================================================================== */
 
 .header1 {
+    /* Couleur de secours si l'image ne charge pas, puis superposition d'un voile noir transparent (gradient)
+       et enfin l'image de fond */
     background-color: #000000;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/front.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
     color: var(--white);
     padding: 1.5rem 2rem;
+
+    /* Flexbox : Aligne le logo à gauche et le menu à droite sur la même ligne */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permet de passer à la ligne si l'écran est trop petit */
     gap: 1rem;
 }
 
+/* Style spécifique pour le logo SŌMA */
 .logo {
     font-family: var(--font-heading);
     font-weight: bold;
     font-size: 2.5rem;
-    letter-spacing: 3px;
+    letter-spacing: 3px; /* Espace un peu les lettres pour un effet luxueux */
     color: var(--white);
 }
 
+/* Liste du menu de navigation */
 .menu {
-    list-style: none;
-    display: flex;
+    list-style: none; /* Supprime les puces de la liste (les points noirs) */
+    display: flex;    /* Met les liens les uns à côté des autres */
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1rem;        /* Espace horizontal entre chaque lien du menu */
     align-items: center;
 }
 
+/* Liens à l'intérieur du menu */
 .menu a {
     color: var(--white);
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 4px; /* Arrondit légèrement les coins */
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: background-color 0.3s ease;
 }
 
+/* Effet quand on survole un lien du menu ou qu'il est actif (la page actuelle) */
 .menu a:hover,
 .menu a:focus,
 .menu a.actif {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Devient rouge bordeaux */
     color: var(--white);
 }
+
 
 /* ==========================================================================
    3. PAGE D'ACCUEIL (INDEX)
    ========================================================================== */
 
-/* Section des 3 blocs d'informations alignés côte à côte en dessous du header */
+/*
+  Section des 3 blocs d'informations (Location, Reservations, Contact).
+  Grâce à 'display: flex', ils se mettent automatiquement **côte à côte** sur ordinateur.
+*/
 .infos-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espace équitablement les 3 blocs */
     align-items: flex-start;
     padding: 3rem 5%;
     background-color: var(--background-color);
     text-align: center;
-    border-bottom: 1px solid rgba(114, 14, 7, 0.15);
-    gap: 1.5rem; /* Espace propre entre les trois colonnes */
+    border-bottom: 1px solid rgba(114, 14, 7, 0.15); /* Fine ligne de séparation élégante */
+    gap: 1.5rem; /* Espace de sécurité entre les colonnes */
 }
 
+/* Chaque colonne individuelle prend une part égale de l'espace grâce à flex: 1 */
 .infos-colonnes {
-    flex: 1; /* Permet aux 3 blocs de se partager l'espace de manière égale */
+    flex: 1;
     padding: 0 0.5rem;
 }
 
@@ -149,7 +191,7 @@ a:hover {
 
 .infos-colonnes a {
     color: var(--text-color);
-    text-decoration: underline;
+    text-decoration: underline; /* Souligne les liens e-mail et téléphone */
 }
 
 /* Sections de présentation (Restaurant & L'expérience) */
@@ -161,12 +203,13 @@ a:hover {
     padding: 4rem 8%;
 }
 
+/* .feature-row inverse l'ordre : l'image passe à gauche et le texte à droite */
 .feature-row {
     flex-direction: row-reverse;
 }
 
 .presentation {
-    flex: 1;
+    flex: 1; /* Le texte prend la moitié de l'espace */
 }
 
 .presentation h2 {
@@ -183,24 +226,26 @@ a:hover {
 }
 
 .feature-image {
-    flex: 1;
+    flex: 1; /* L'image prend l'autre moitié de l'espace */
 }
 
 .feature-image img {
     width: 100%;
     height: 380px;
-    object-fit: cover;
+    object-fit: cover; /* Évite que l'image soit déformée en remplissant proprement sa zone */
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile sous l'image */
 }
 
+
 /* ==========================================================================
-   4. PAGES MENU & CONTACTS
+   4. PAGES MENU ET CONTACTS (Mise en page secondaire)
    ========================================================================== */
 
+/* Conteneur global pour centrer le contenu des pages Menu et Contact */
 .page-container {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centre la boîte sur la page */
     padding: 3rem 1.5rem;
 }
 
@@ -221,11 +266,12 @@ a:hover {
     font-size: 1.1rem;
 }
 
+/* Carte de contact (bloc blanc stylisé) */
 .contact-card {
     background: var(--white);
     padding: 2rem;
     border-radius: 8px;
-    border-left: 5px solid var(--primary-color);
+    border-left: 5px solid var(--primary-color); /* Grosse bordure élégante sur la gauche */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     max-width: 600px;
     margin: 0 auto;
@@ -238,9 +284,10 @@ a:hover {
 }
 
 .contact-card p {
-    line-height: 2;
+    line-height: 2; /* Espace bien les lignes d'adresse/téléphone */
 }
 
+/* Navigation interne par catégories dans la page Menu (les petits boutons ronds) */
 .categories {
     display: flex;
     justify-content: center;
@@ -254,7 +301,7 @@ a:hover {
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    border-radius: 1rem; /* Forme de pilule / badge arrondi */
     font-weight: bold;
     font-size: 0.85rem;
     transition: all 0.3s ease;
@@ -262,10 +309,11 @@ a:hover {
 
 .categories a:hover {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--background-color);
     opacity: 1;
 }
 
+/* Bloc d'une catégorie du menu (ex: Starters, Main Dishes...) */
 .menu-section {
     background: var(--white);
     padding: 2rem;
@@ -277,7 +325,7 @@ a:hover {
 .menu-section h2 {
     font-family: var(--font-heading);
     color: var(--primary-color);
-    border-bottom: 2px solid var(--background-color);
+    border-bottom: 2px solid var(--text-color); /*bande en dessous du texte dans le menu, exemple en dessous de starters*/
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
@@ -287,24 +335,29 @@ a:hover {
     list-style: none;
 }
 
+/* Ligne d'un plat : Nom à gauche, Prix à droite grâce à justify-content: space-between */
 .menu-items li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0.75rem 0;
-    border-bottom: 1px dashed #e0e0e0;
+    border-bottom: 1px dashed #e0e0e0; /* Petite ligne pointillée séparatrice entre chaque plat */
     font-size: 0.95rem;
 }
 
+/* Retire la bordure pointillée du tout dernier élément de la liste */
 .menu-items li:last-child {
     border-bottom: none;
 }
 
+/* Style du prix aligné à droite */
 .price {
     font-weight: bold;
     color: var(--primary-color);
     margin-left: 1rem;
-    white-space: nowrap;
+    white-space: nowrap; /* Empêche le prix de se couper sur deux lignes */
 }
+
 
 /* ==========================================================================
    5. PIED DE PAGE (FOOTER)
@@ -315,15 +368,22 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 1.5rem;
-    margin-top: auto;
+    margin-top: auto; /* Aide à pousser le footer tout en bas */
     font-size: 0.85rem;
 }
 
+
 /* ==========================================================================
-   6. RESPONSIVE / ADAPTATION SMARTPHONE (Max-width: 768px)
+   6. RESPONSIVE DESIGN (Adaptation pour smartphones et tablettes)
    ========================================================================== */
 
+/*
+  Cette règle @media s'active automatiquement dès que l'écran fait
+  768 pixels de large ou moins (écrans de téléphones portables).
+*/
 @media (max-width: 768px) {
+
+    /* Le header passe de "côte à côte" à "l'un sous l'autre" (en colonne) */
     .header1 {
         flex-direction: column;
         text-align: center;
@@ -335,7 +395,10 @@ footer {
         width: 100%;
     }
 
-    /* Sur mobile uniquement, on empile les 3 blocs d'infos les uns sous les autres */
+    /*
+      Sur mobile, les 3 blocs d'infos (Location, Reservations, Contact)
+      passent l'un en dessous de l'autre pour éviter d'être trop serrés.
+    */
     .infos-section {
         flex-direction: column;
         gap: 2rem;
@@ -347,6 +410,7 @@ footer {
         width: 100%;
     }
 
+    /* Les blocs de présentation image + texte passent aussi l'un sous l'autre */
     .features-section,
     .feature-row {
         flex-direction: column;
@@ -354,4 +418,25 @@ footer {
         gap: 1.5rem;
     }
 
+    /* On réduit un peu la hauteur des images sur mobile pour que ce soit plus joli */
     .feature-image img {
+        height: 250px;
+    }
+
+    .page-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .categories {
+        gap: 0.5rem;
+    }
+
+    .categories a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .menu-section {
+        padding: 1.25rem;
+    }
+}

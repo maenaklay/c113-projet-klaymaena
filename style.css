@@ -1,203 +1,357 @@
-*{
+/* ==========================================================================
+   1. REGLES GENERALES & VARIABLES
+   ========================================================================== */
+
+* {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #720e07;
+    --secondary-color: #365946;
+    --text-color: #45050c;
+    --background-color: #fbf3da;
+    --white: #ffffff;
+    --font-heading: 'Cinzel', serif, sans-serif;
+    --font-body: 'Cinzelregular', serif, sans-serif;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('font/cinzel-v26-latin-700.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzelregular';
+    src: url('font/cinzel-v26-latin-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
-:root {
-    --primary-color: #720e07;
-    --secondary-color:#365946;
-    --text-color:#45050c;
-    --background-color: #fbf3da;
-    --police-titre : Cinzel, sans-serif;
-    --police-text : Cinzelregular;
-}
-
-@font-face {
-    font-family: 'Cinzel';
-    src : url('font/cinzel-v26-latin-700.woff2') format('woff2');
-    font-size: auto;
-    padding:1.5em;
-    line-height: 1.6;
-}
-@font-face {
-    font-family: 'Cinzelregular';
-    src : url('font/cinzel-v26-latin-regular.woff2') format('woff2');
-    font-size: auto;
-    line-height:1.6;
-}
-
-
-body {
-    background: #fbf3da;
-}
-
-
-
-header {
-    background-color: var(--background-color);
-    padding: 1rem 1.5rem;
-    display: flex; /*Pour le mettre sur la meme ligne que les autre le (Mon Portfolio)*/
-    align-items: center;
-    flex-wrap: wrap;
-    gap: .75rem;
-    font-size: 4rem;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 4rem; /*rend le logo plus visible*/
-}
-
-header a {
-    color: var(--background-color);
+a {
+    color: inherit;
     text-decoration: none;
+    transition: opacity 0.3s ease;
 }
 
-.menu {
-    list-style-type: none; /*supprime les puce*/
-    padding: 0; /*Supprime lespace contre le bord*/
-    margin: 0; /*Supprime les marges*/
-    display: flex; /*Affiche le menu de manière côte a côte*/
-    flex-wrap: wrap;/*Fais que si l'écran devient petit il passe sur la deuxième, troisième lignes*/
-    gap: 1rem;/* 1rem = 16px donc .5 = 8px si on met em=taille du menu
-     ici tandis que rem taille relatif a la taille de base du site*/
-    flex-direction: column;
-
+a:hover {
+    opacity: 0.8;
 }
 
-.menu a { /* a = lien mais ici menu a = les liens du menu*/
-    color: var(--background-color);
-    padding: .6rem 1rem; /*grossis la zone cliquable environ 30px*/
-    border-radius: 0.25rem;
-}
-
-
-.menu a:hover,         /*hover=passe en dessus et focus c'est le clic, ici c'est pour que sa soit visuel quand on passe dessus*/
-.menu a:focus,
-.menu a.actif {  /*ici fait que lorsque on clique sur un choix du menu il rest en vert lorsque la pasge s'ouvre*/
-    background-color: var(--primary-color);
-
-}
-
-
-.presentation {
-    color : var(--text-color);
-    font-family: Cinzelregular, sans-serif;
-}
-
-.header1 { /* Image d'entête */
-    color : var(--background-color);
-    background-image: url("img/front.jpg");
-    min-height: 200px;
-    background-position: center;
-    background-size : cover;
-    background-repeat: no-repeat;
-    cursor : pointer;
-    font-size :1.5rem;
-}
+/* ==========================================================================
+   2. EN-TÊTE (HEADER) & NAVIGATION
+   ========================================================================== */
 
 .header1 {
     background-color: #000000;
-    color: #ffffff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/front.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--white);
+    padding: 1.5rem 2rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: .75rem 1rem;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
-.banner-container {
-    width: 100%;
+.logo {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    color: var(--white);
 }
 
-.banner-img {
-    width: 100%;
-    height: auto;
-    max-height: 220px;
-    object-fit: cover;
-    display:block;
+.menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
 }
 
+.menu a {
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus,
+.menu a.actif {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* ==========================================================================
+   3. PAGE D'ACCUEIL (INDEX)
+   ========================================================================== */
+
+/* Section des 3 blocs d'informations alignés côte à côte en dessous du header */
 .infos-section {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 100%;
-    padding: 40px 20px;
+    padding: 3rem 5%;
+    background-color: var(--background-color);
     text-align: center;
-    background-color: #fbf3da;
+    border-bottom: 1px solid rgba(114, 14, 7, 0.15);
+    gap: 1.5rem; /* Espace propre entre les trois colonnes */
 }
 
 .infos-colonnes {
-    flex: 1;
-    padding: 0 1rem;
+    flex: 1; /* Permet aux 3 blocs de se partager l'espace de manière égale */
+    padding: 0 0.5rem;
 }
 
 .infos-colonnes h2 {
-    font-family: Cinzel;
+    font-family: var(--font-heading);
     font-size: 1rem;
-    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
     letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    color: #720e07;
-    font-family: Cinzel;
 }
 
-.features-section {
+.infos-colonnes p {
+    font-size: 0.85rem;
+}
+
+.infos-colonnes a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+/* Sections de présentation (Restaurant & L'expérience) */
+.features-section,
+.feature-row {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
-    padding: 50px 8%;
+    gap: 3rem;
+    padding: 4rem 8%;
 }
 
 .feature-row {
-    display: flex;
     flex-direction: row-reverse;
-    align-items: center;
-    gap: 2.5rem;
-    padding: 3rem 8%;
 }
 
 .presentation {
     flex: 1;
-    color: var(--text-color);
-    font-family: Cinzelregular, sans-serif;
 }
 
-.feature-image,
-.feature-image2 {
+.presentation h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.presentation p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.feature-image {
     flex: 1;
-    min-width: 0;
 }
 
-.feature-image img,
-.feature-image2 img {
-    display: block;
+.feature-image img {
     width: 100%;
-    height: 400px;
+    height: 380px;
     object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* ==========================================================================
+   4. PAGES MENU & CONTACTS
+   ========================================================================== */
+
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.contact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-card h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    line-height: 2;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.categories a {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.categories a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    opacity: 1;
+}
+
+.menu-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.menu-section h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--background-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.menu-items {
+    list-style: none;
+}
+
+.menu-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px dashed #e0e0e0;
+    font-size: 0.95rem;
+}
+
+.menu-items li:last-child {
+    border-bottom: none;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: 1rem;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   5. PIED DE PAGE (FOOTER)
+   ========================================================================== */
+
+footer {
+    background-color: #000000;
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE / ADAPTATION SMARTPHONE (Max-width: 768px)
+   ========================================================================== */
 
 @media (max-width: 768px) {
-    .features-section,
-    .feature-row {
+    .header1 {
         flex-direction: column;
+        text-align: center;
         padding: 1.5rem 1rem;
-        gap: 1.5rem;
     }
 
-    .feature-image,
-    .feature-image2,
-    .presentation {
+    .menu {
+        justify-content: center;
         width: 100%;
     }
 
-    .feature-image img,
-    .feature-image2 img {
-        height: auto;
+    /* Sur mobile uniquement, on empile les 3 blocs d'infos les uns sous les autres */
+    .infos-section {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1rem;
     }
-}
 
+    .infos-colonnes {
+        padding: 0;
+        width: 100%;
+    }
+
+    .features-section,
+    .feature-row {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .feature-image img {

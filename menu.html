@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Notre Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - SŌMA Restaurant</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,81 +11,93 @@
     <a class="logo" href="index.html">SŌMA</a>
     <nav>
         <ul class="menu">
-            <a href="index.html"><strong>HOME</strong></a>
-            <a href="menu.html"aria-current="page"><strong>MENU</strong></a>
-            <a href="contact.html"><strong>CONTACTS</strong></a>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html" class="actif" aria-current="page">MENU</a></li>
+            <li><a href="contact.html">CONTACTS</a></li>
         </ul>
     </nav>
 </header>
-<main>
-<h1>Our Menu</h1>
-<p>Discover Our Specials</p>
-    <div class="categories">
-        <h2>Categories</h2>
-        <a href="#entrees">Entrées</a>
-        <a href="#plats">Plats principaux</a>
+
+<main class="page-container">
+    <div class="page-header">
+        <h1>Our Menu</h1>
+        <p>Discover Our Specials</p>
+    </div>
+
+    <!-- Navigation interne vers les sections du menu -->
+    <nav class="categories">
+        <a href="#entrees">Starters</a>
+        <a href="#plats">Main Dishes</a>
         <a href="#desserts">Desserts</a>
-        <a href="#boissons">Boissons</a>
+        <a href="#boissons">Drinks</a>
         <a href="#cocktails">Cocktails</a>
-    </div>
-    <div class="menu-section" id="entrees">
-        <h2>Entrées</h2>
-        <p>
-            Carpaccio de boeuf AAA Canadien - 25 CAD<br>
-            Salade de pois chiches grillés et légumes - 9 CAD<br>
-            Burrata des Pouilles et tomates anciennes - 10 CAD<br>
-            Saint-Jacques poêlées - 14 CAD <br>
-            Vitello tonnato revisité - 15 CAD
-        </p>
-    </div>
-    <div class="menu-section" id="plats">
-        <h2>Plats principaux</h2>
-        <p>
-            Tagliolini à la truffe noire - 25 CAD<br>
-            Risotto au safran et Saint-Jacques - 19 CAD<br>
-            Pappardelle au ragoût de bœuf braisé- 23 CAD<br>
-            Pâtes à la carbonara - 18 CAD <br>
-            Omble chevalier rôti - 30 CAD
-        </p>
-    </div>
-    <div class="menu-section" id="desserts">
+    </nav>
+
+    <!-- Starters -->
+    <section class="menu-section" id="entrees">
+        <h2>Starters</h2>
+        <ul class="menu-items">
+            <li><span>Carpaccio de bœuf AAA Canadien</span><span class="price">25 CAD</span></li>
+            <li><span>Salade de pois chiches grillés et légumes</span><span class="price">9 CAD</span></li>
+            <li><span>Burrata des Pouilles et tomates anciennes</span><span class="price">10 CAD</span></li>
+            <li><span>Saint-Jacques poêlées</span><span class="price">14 CAD</span></li>
+            <li><span>Vitello tonnato revisité</span><span class="price">15 CAD</span></li>
+        </ul>
+    </section>
+
+    <!-- Main Dishes -->
+    <section class="menu-section" id="plats">
+        <h2>Main Dishes</h2>
+        <ul class="menu-items">
+            <li><span>Tagliolini à la truffe noire</span><span class="price">25 CAD</span></li>
+            <li><span>Risotto au safran et Saint-Jacques</span><span class="price">19 CAD</span></li>
+            <li><span>Pappardelle au ragoût de bœuf braisé</span><span class="price">23 CAD</span></li>
+            <li><span>Pâtes à la carbonara</span><span class="price">18 CAD</span></li>
+            <li><span>Omble chevalier rôti</span><span class="price">30 CAD</span></li>
+        </ul>
+    </section>
+
+    <!-- Desserts -->
+    <section class="menu-section" id="desserts">
         <h2>Desserts</h2>
-        <p>
-            Tiramisu - CAD <br>
-            Semifreddo à la pistache de Sicile - 10 CAD<br>
-            Crème brûlée fruit de la passion- 8 CAD<br>
-            Panna cota à la vanille - CAD
-        </p>
-    </div>
+        <ul class="menu-items">
+            <li><span>Tiramisu</span><span class="price">11 CAD</span></li>
+            <li><span>Semifreddo à la pistache de Sicile</span><span class="price">10 CAD</span></li>
+            <li><span>Crème brûlée fruit de la passion</span><span class="price">8 CAD</span></li>
+            <li><span>Panna cotta à la vanille</span><span class="price">9 CAD</span></li>
+        </ul>
+    </section>
 
-    <div class="menu-section" id="boissons">
-        <h2>Boissons</h2>
-        <p>
-            Coca-Cola - 4 CAD<br>
-            Still Water - 3 CAD<br>
-            Sparkling Water - 3CAD<br>
-            Cocktail sans alcool - 8 CAD<br>
-            Thé glacé maison - 5 CAD
-        </p>
-    </div>
+    <!-- Drinks -->
+    <section class="menu-section" id="boissons">
+        <h2>Drinks</h2>
+        <ul class="menu-items">
+            <li><span>Coca-Cola</span><span class="price">4 CAD</span></li>
+            <li><span>Still Water</span><span class="price">3 CAD</span></li>
+            <li><span>Sparkling Water</span><span class="price">3 CAD</span></li>
+            <li><span>Cocktail sans alcool</span><span class="price">8 CAD</span></li>
+            <li><span>Thé glacé maison</span><span class="price">5 CAD</span></li>
+        </ul>
+    </section>
 
-    <div class="menu-section" id="cocktails">
+    <!-- Cocktails -->
+    <section class="menu-section" id="cocktails">
         <h2>Cocktails</h2>
-        <p>
-            Negroni Royale - 22 CAD<br>
-            Bellini di Lusso - 21 CAD<br>
-            Spritz al Rosmarino - 20 CAD<br>
-            Martini Bianco - 19 CAD<br>
-            Canadian Maple Old Fashioned - 19 CAD<br>
-            Expresso Martini - 19 CAD<br>
-            PornStar Martini - 19 CAD<br>
-            Amaretto Velvet - 19 CAD
-        </p>
-    </div>
-
-    <footer>
-        <p>© 2026 Restaurant SŌMA</p>
-    </footer>
+        <ul class="menu-items">
+            <li><span>Negroni Royale</span><span class="price">22 CAD</span></li>
+            <li><span>Bellini di Lusso</span><span class="price">21 CAD</span></li>
+            <li><span>Spritz al Rosmarino</span><span class="price">20 CAD</span></li>
+            <li><span>Martini Bianco</span><span class="price">19 CAD</span></li>
+            <li><span>Canadian Maple Old Fashioned</span><span class="price">19 CAD</span></li>
+            <li><span>Espresso Martini</span><span class="price">19 CAD</span></li>
+            <li><span>PornStar Martini</span><span class="price">19 CAD</span></li>
+            <li><span>Amaretto Velvet</span><span class="price">19 CAD</span></li>
+        </ul>
+    </section>
 </main>
+
+<footer>
+    <p>© 2026 Restaurant SŌMA</p>
+</footer>
 </body>
 </html>

@@ -124,6 +124,7 @@ a {
     flex-wrap: wrap;
     gap: 1rem;        /* Espace horizontal entre chaque lien du menu */
     align-items: center;
+    font-family: var(--font-heading);
 }
 
 /* Liens à l'intérieur du menu ??*/
@@ -131,7 +132,7 @@ a {
     color: var(--white);
     padding: 0.5rem 1rem;
     border-radius: 4px; /* Arrondit légèrement les coins */
-    font-weight: bold;
+    font-weight: normal;
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: background-color 0.3s ease;
@@ -251,14 +252,15 @@ a {
 .page-header h1 {
     font-family: var(--font-heading);
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    letter-spacing: 1.6px; /*espacement entre les lettres des titre menu et contacts*/
     margin-bottom: 0.5rem;
 }
 
 .page-header p {
     font-style: left;
     font-family: var(--font-heading);
-    font-size: 1.3rem;
+    font-size: 1.2rem; /*taille des sous-titres dans menu et contacts*/
 }
 
 /* Carte de contact (bloc blanc stylisé) */
@@ -297,7 +299,7 @@ a {
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     padding: 0.5rem 1.2rem;
-    border-radius: 1rem; /* Forme de pilule / badge arrondi */
+    border-radius: 4px; /* Forme de pilule / badge arrondi */
     font-weight: bold;
     font-size: 0.85rem;
     transition: all 0.3s ease;

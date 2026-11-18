@@ -27,8 +27,14 @@
     --text-color: #45050c;        /* Couleur sombre pour les textes */
     --background-color: #fbf3da;  /* Couleur de fond beige sable/crème */
     --white: #ffffff;             /* Blanc pur */
-    --font-heading: 'Cinzel', serif, sans-serif;          /* Police pour les titres */
-    --font-body: 'Cinzelregular', serif, sans-serif;      /* Police pour le texte normal */
+    --font-heading: 'Aboreto', serif, sans-serif;          /* Police pour les titres */
+    --font-body: 'Open Sans', serif, sans-serif;      /* Police pour le texte normal */
+}
+/*POur éviter que les image déborde*/
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Supprime l'espace blanc parasite sous les images */
 }
 
 /*
@@ -36,15 +42,15 @@
   qui sont stockées dans ton dossier (ici dans le dossier 'font').
 */
 @font-face {
-    font-family: 'Cinzel';
-    src: url('font/cinzel-v26-latin-700.woff2') format('woff2');
+    font-family: 'Open Sans';
+    src: url('font/open-sans-v44-latin-regular.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Cinzelregular';
-    src: url('font/cinzel-v26-latin-regular.woff2') format('woff2');
+    font-family: 'Montserrat';
+    src: url('font/montserrat-v31-latin-regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -70,25 +76,12 @@ main {
     flex: 1;
 }
 
-/* Rend toutes les images adaptatives : elles ne dépassent jamais la largeur de leur conteneur */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Supprime l'espace blanc parasite sous les images */
-}
-
 /* Style global des liens hypertexte <a> */
 a {
-    color: inherit;         /* Hérite de la couleur du texte parent par défaut */
+    color: var(--text-color);         /* Hérite de la couleur du texte parent par défaut */
     text-decoration: none;  /* Supprime le soulignement moche des liens */
     transition: opacity 0.3s ease; /* Effet de fondu doux au survol */
 }
-
-/* Au survol d'un lien, on réduit légèrement son opacité */
-a:hover {
-    opacity: 0.8;
-}
-
 
 /* ==========================================================================
    2. EN-TÊTE (HEADER) ET BARRE DE NAVIGATION
@@ -98,11 +91,12 @@ a:hover {
     /* Couleur de secours si l'image ne charge pas, puis superposition d'un voile noir transparent (gradient)
        et enfin l'image de fond */
     background-color: #000000;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/front.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), /*Création de dégradé pour que le text soit plus visible*/
+                      rgba(0, 0, 0, 0.6)),
+                      url("img/front.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
     color: var(--white);
     padding: 1.5rem 2rem;
 
@@ -110,7 +104,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Permet de passer à la ligne si l'écran est trop petit */
+    flex-wrap: wrap; /* Permet de passer à la ligne suivante si l'écran est trop petit */
     gap: 1rem;
 }
 
@@ -119,7 +113,7 @@ a:hover {
     font-family: var(--font-heading);
     font-weight: bold;
     font-size: 2.5rem;
-    letter-spacing: 3px; /* Espace un peu les lettres pour un effet luxueux */
+    letter-spacing: 4px; /* Espace un peu les lettres plus de style */
     color: var(--white);
 }
 
@@ -132,7 +126,7 @@ a:hover {
     align-items: center;
 }
 
-/* Liens à l'intérieur du menu */
+/* Liens à l'intérieur du menu ??*/
 .menu a {
     color: var(--white);
     padding: 0.5rem 1rem;
@@ -262,8 +256,9 @@ a:hover {
 }
 
 .page-header p {
-    font-style: italic;
-    font-size: 1.1rem;
+    font-style: left;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
 }
 
 /* Carte de contact (bloc blanc stylisé) */
@@ -297,7 +292,8 @@ a:hover {
 }
 
 .categories a {
-    background-color: var(--white);
+    background-color: var(--white); /*couleurs des pilules a l'intérieur*/
+    font-family: var(--font-heading);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     padding: 0.5rem 1.2rem;
@@ -315,7 +311,7 @@ a:hover {
 
 /* Bloc d'une catégorie du menu (ex: Starters, Main Dishes...) */
 .menu-section {
-    background: var(--white);
+    background: white; /*couleur a l'intérieur des blocs du menu des carré arrondis*/
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -353,16 +349,14 @@ a:hover {
 /* Style du prix aligné à droite */
 .price {
     font-weight: bold;
+    font-family: var(--font-heading); /*text comme les titre pour les prix en gras avec le bold*/
     color: var(--primary-color);
     margin-left: 1rem;
     white-space: nowrap; /* Empêche le prix de se couper sur deux lignes */
 }
-
-
 /* ==========================================================================
    5. PIED DE PAGE (FOOTER)
    ========================================================================== */
-
 footer {
     background-color: #000000;
     color: var(--white);
@@ -371,7 +365,6 @@ footer {
     margin-top: auto; /* Aide à pousser le footer tout en bas */
     font-size: 0.85rem;
 }
-
 
 /* ==========================================================================
    6. RESPONSIVE DESIGN (Adaptation pour smartphones et tablettes)

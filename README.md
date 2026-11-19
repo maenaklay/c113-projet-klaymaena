@@ -6,32 +6,33 @@
 ### Concept
 - Thème choisi : Page d'acceuil restauration italienne inovateur, Toronto, Canada.
 - Public cible : Clients 
-- Objectifs du site : Appercu visuel du restaurant et apperçu du menus
+- Objectifs du site : Appercu visuel du restaurant et apperçu du menu, avec possiblité d'accéder a la page d'acceuil
+  au menu, et au contacts. 
 
 ### Fonctionnalités prévues
-- Navigation : …
-- Sections principales : …
-- Contenus proposés : …
-
----
+- Navigation : Possibilités de navigué dans les pages du site et petite navigation dans la page MENU ou l'utilisateur peut accéder 
+au différent endroit du menu, le dessert, les boissons, etc.
+- Sections principales : page d'acceuil(HOME), menu(MENU), Contact (CONTACTS)
+- Contenus proposés : 
+  - Présentation du restaurant sur la page d'acceuil 
+  - Possiblité de navigation entre les pages
+  - Visbilité du menu du restaurant et des prix
 
 ## 2. 📚 Parcours d'apprentissage
+Ce cours m'a permis de développer plusieurs nouvelles connaissances en ce qui concerne le langage HTML et CSS, 
+l'application nuxy m'a beaucoup aidé personnellement pour assimiler la matière et pour pouvoir m'insipirer. 
+Au début, j'étais un peu perdue n'ayant jamais fait de code HTML ou CSS. 
+Les permières semaines, je me suis beaucoup focalisée sur Nuxy pour assimiler les connaissances de bases de ce nouveau langage. 
+Peu à peu j'ai commencé à faire des liens théorie pratique, puisque nous avons commencé à conceptualiser notre site WEB personnel.
+J'ai beaucoup apprécié, le fait que nous étions libre de choisir le thème de notre site. 
+
 
 ### Ressources utilisées
-- Plateformes (OpenClassrooms, MDN, freeCodeCamp, etc.)
-- Vidéos / tutoriels suivis
-- Articles ou documentations consultés
+-Platform Nuxy
+-Google
 
 ### Progression
-- Semaine 4 : …
-- Semaine 6 : …
-- Semaine 8 : …
-- Semaine 10 : …
-- Semaine 11 : …
-- Semaine 12 : …
-
----
-
+-semaine 1
 ## 3. 🛠️ Outils et méthodologie
 
 ### Environnement de travail

@@ -24,7 +24,7 @@
 :root {
     --primary-color: #720e07;     /* Couleur bordeaux/rouge principal */
     --secondary-color: #365946;   /* Vert secondaire (si besoin) */
-    --text-color: #45050c;        /* Couleur sombre pour les textes */
+    --text-color: black;        /* Couleur sombre pour les textes */
     --background-color: #fbf3da;  /* Couleur de fond beige sable/crème */
     --white: #ffffff;             /* Blanc pur */
     --font-heading: 'Aboreto', serif, sans-serif;          /* Police pour les titres */
@@ -162,7 +162,7 @@ a {
     padding: 3rem 5%;
     background-color: var(--background-color);
     text-align: center;
-    border-bottom: 1px solid rgba(114, 14, 7, 0.15); /* Fine ligne de séparation élégante */
+    border-bottom: 3px solid var(--primary-color);
     gap: 1.5rem; /* Espace de sécurité entre les colonnes */
 }
 
@@ -245,7 +245,7 @@ a {
 }
 
 .page-header {
-    text-align: center;
+    text-align: left; /*emplacement titre menu et contact peut etre mettre au milieu*/
     margin-bottom: 2.5rem;
 }
 
@@ -253,11 +253,11 @@ a {
     font-family: var(--font-heading);
     color: var(--primary-color);
     font-size: 2.2rem;
-    letter-spacing: 1.6px; /*espacement entre les lettres des titre menu et contacts*/
+    letter-spacing: 4px; /*espacement entre les lettres des titre menu et contacts*/
     margin-bottom: 0.5rem;
 }
 
-.page-header p {
+.page-header p { /*les liens sont noirs et pas blancs pk ?*/
     font-style: left;
     font-family: var(--font-heading);
     font-size: 1.2rem; /*taille des sous-titres dans menu et contacts*/
@@ -265,23 +265,26 @@ a {
 
 /* Carte de contact (bloc blanc stylisé) */
 .contact-card {
-    background: var(--white);
+    background: black;
     padding: 2rem;
     border-radius: 8px;
-    border-left: 5px solid var(--primary-color); /* Grosse bordure élégante sur la gauche */
+    /*border-left: 5px solid var(--primary-color); Grosse bordure élégante sur la gauche */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     max-width: 600px;
     margin: 0 auto;
+
 }
 
 .contact-card h2 {
     font-family: var(--font-heading);
-    color: var(--primary-color);
+    color: var(--white);
     margin-bottom: 1rem;
+    border-bottom: 3px solid var(--primary-color);
 }
 
 .contact-card p {
     line-height: 2; /* Espace bien les lignes d'adresse/téléphone */
+    color: var(--white);
 }
 
 /* Navigation interne par catégories dans la page Menu (les petits boutons ronds) */
@@ -294,10 +297,10 @@ a {
 }
 
 .categories a {
-    background-color: var(--white); /*couleurs des pilules a l'intérieur*/
+    background-color: black; /*couleurs des pilules a l'intérieur*/
     font-family: var(--font-heading);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    color: var(--white);
+    border: 1px solid black;
     padding: 0.5rem 1.2rem;
     border-radius: 4px; /* Forme de pilule / badge arrondi */
     font-weight: bold;
@@ -307,13 +310,13 @@ a {
 
 .categories a:hover {
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--white);
     opacity: 1;
 }
 
 /* Bloc d'une catégorie du menu (ex: Starters, Main Dishes...) */
 .menu-section {
-    background: white; /*couleur a l'intérieur des blocs du menu des carré arrondis*/
+    background: black; /*couleur a l'intérieur des blocs du menu des carré arrondis*/
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -322,8 +325,8 @@ a {
 
 .menu-section h2 {
     font-family: var(--font-heading);
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--text-color); /*bande en dessous du texte dans le menu, exemple en dessous de starters*/
+    color: var(--white);/*couleur des titres des sections du menu*/
+    border-bottom: 3px solid var(--primary-color); /*bande en dessous du texte dans le menu, exemple en dessous de starters*/
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
@@ -331,6 +334,7 @@ a {
 
 .menu-items {
     list-style: none;
+    color: var(--white);
 }
 
 /* Ligne d'un plat : Nom à gauche, Prix à droite grâce à justify-content: space-between */
@@ -352,7 +356,7 @@ a {
 .price {
     font-weight: bold;
     font-family: var(--font-heading); /*text comme les titre pour les prix en gras avec le bold*/
-    color: var(--primary-color);
+    color: var(--white);
     margin-left: 1rem;
     white-space: nowrap; /* Empêche le prix de se couper sur deux lignes */
 }

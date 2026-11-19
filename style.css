@@ -27,7 +27,7 @@
     --text-color: black;        /* Couleur sombre pour les textes */
     --background-color: #fbf3da;  /* Couleur de fond beige sable/crème */
     --white: #ffffff;             /* Blanc pur */
-    --font-heading: 'Aboreto', serif, sans-serif;          /* Police pour les titres */
+    --font-heading: 'Montserrat', serif, sans-serif;          /* Police pour les titres */
     --font-body: 'Open Sans', serif, sans-serif;      /* Police pour le texte normal */
 }
 /*POur éviter que les image déborde*/

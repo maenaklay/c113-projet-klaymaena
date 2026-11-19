@@ -27,7 +27,7 @@
     --text-color: black;        /* Couleur sombre pour les textes */
     --background-color: #fbf3da;  /* Couleur de fond beige sable/crème */
     --white: #ffffff;             /* Blanc pur */
-    --font-heading: 'Montserrat', serif, sans-serif;          /* Police pour les titres */
+    --font-heading: 'Aboreto', serif, sans-serif;          /* Police pour les titres */
     --font-body: 'Open Sans', serif, sans-serif;      /* Police pour le texte normal */
 }
 /*POur éviter que les image déborde*/
@@ -51,6 +51,13 @@ img {
 @font-face {
     font-family: 'Montserrat';
     src: url('font/montserrat-v31-latin-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aboreto';
+    scr: url(font/aboreto-v2-latin-regular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -285,6 +292,11 @@ a {
 .contact-card p {
     line-height: 2; /* Espace bien les lignes d'adresse/téléphone */
     color: var(--white);
+}
+
+.contact-card a{
+    color : var(--white);
+    text-decoration: underline;
 }
 
 /* Navigation interne par catégories dans la page Menu (les petits boutons ronds) */

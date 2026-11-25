@@ -119,7 +119,7 @@ a {
 .logo {
     font-family: var(--font-heading);
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     letter-spacing: 4px; /* Espace un peu les lettres plus de style */
     color: var(--white);
 }
@@ -141,9 +141,10 @@ a {
     border-radius: 4px; /* Arrondit légèrement les coins */
     font-weight: normal;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    font-size: 1.5rem; /*taille d text du menu principale*/
     transition: background-color 0.3s ease;
 }
+
 
 /* Effet quand on survole un lien du menu ou qu'il est actif (la page actuelle) */
 .menu a:hover,
@@ -246,7 +247,7 @@ a {
 
 /* Conteneur global pour centrer le contenu des pages Menu et Contact */
 .page-container {
-    max-width: 900px;
+    max-width: 990px;
     margin: 0 auto; /* Centre la boîte sur la page */
     padding: 3rem 1.5rem;
 }
@@ -259,7 +260,7 @@ a {
 .page-header h1 {
     font-family: var(--font-heading);
     color: var(--primary-color);
-    font-size: 2.2rem;
+    font-size: 3rem;
     letter-spacing: 4px; /*espacement entre les lettres des titre menu et contacts*/
     margin-bottom: 0.5rem;
 }
@@ -267,7 +268,8 @@ a {
 .page-header p { /*les liens sont noirs et pas blancs pk ?*/
     font-style: left;
     font-family: var(--font-heading);
-    font-size: 1.2rem; /*taille des sous-titres dans menu et contacts*/
+    font-size: 1.5rem; /*taille des sous-titres dans menu et contacts*/
+    border-bottom: 4px solid var(--primary-color); /*Soulignement en dessous des titre dans menu et contact*/
 }
 
 /* Carte de contact (bloc blanc stylisé) */
@@ -300,19 +302,27 @@ a {
 }
 
 /* Navigation interne par catégories dans la page Menu (les petits boutons ronds) */
+html{
+    scroll-behavior: smooth; /*défilement fluide lorsque l'on clique sur une catégorie d'un menu*/
+}
 .categories {
     display: flex;
     justify-content: center;
+    z-index: 100;
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-bottom: 3rem;
+    position: sticky; /*Permet au pilule de rester en haut du site pour que l'utilisateur les ai en visuel*/
+    top: 0; /*colle les pastilles en haut de l'écran*/
+    padding: 0.75rem 0;
+
 }
 
 .categories a {
-    background-color: black; /*couleurs des pilules a l'intérieur*/
+    background-color: var(--secondary-color); /*couleurs des pilules a l'intérieur*/
     font-family: var(--font-heading);
     color: var(--white);
-    border: 1px solid black;
+    border: 2px solid var(--secondary-color);
     padding: 0.5rem 1.2rem;
     border-radius: 4px; /* Forme de pilule / badge arrondi */
     font-weight: bold;
@@ -320,10 +330,11 @@ a {
     transition: all 0.3s ease;
 }
 
-.categories a:hover {
+.categories a:hover { /*effet lors que la souris passe au dessus*/
     background-color: var(--primary-color);
     color: var(--white);
     opacity: 1;
+    border: 2px solid var(--primary-color);
 }
 
 /* Bloc d'une catégorie du menu (ex: Starters, Main Dishes...) */
@@ -333,6 +344,8 @@ a {
     border-radius: 8px;
     margin-bottom: 2rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    scroll-margin: 5.35rem; /*Pour eviter que les pastilles se placent en dessus des titres*/
+
 }
 
 .menu-section h2 {
@@ -355,7 +368,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 0.75rem 0;
-    border-bottom: 1px dashed #e0e0e0; /* Petite ligne pointillée séparatrice entre chaque plat */
+    border-bottom: 1px dashed white; /* Petite ligne pointillée séparatrice entre chaque plat */
     font-size: 0.95rem;
 }
 
